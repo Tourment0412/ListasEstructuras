@@ -16,26 +16,26 @@ public class SimpleList <E> {
 
 	/**
 	 *  This method is used for adding a new {@link Node} to the list
-	 * @param nodo
+	 * @param node
 	 */
-	public void agregarInicio(Node <E> nodo) {
+	public void addToHead(Node <E> node) {
 		if(head==null) {
-			head=nodo;
+			head=node;
 			size++;
 			return;
 		}
 		Node <E> auxiliar= head;
-		head=nodo;
+		head=node;
 		head.setNext(auxiliar);
 		size++;
 	}
 	/**
 	 * This method is used for adding a new {@link Node} using its data (the correct way to be implemented)
 	 * We should not use {@link Node} as parameter.
-	 * @param valor
+	 * @param value
 	 */
-	public void agregarInicioValor(E valor) {
-		Node <E> nodoPara= new Node<E>(valor);
+	public void addToHeadByValue(E value) {
+		Node <E> nodoPara= new Node<E>(value);
 		if(head==null) {
 			head= nodoPara;
 			return;
@@ -46,7 +46,31 @@ public class SimpleList <E> {
 		
 	}
 	
-	//Tambien podemos hacerlo asignando un valor de previous a un nodo
+	
+	/**
+	 * This method is used for adding a new {@link Node} to as the last node of the {@link SimpleList}
+	 * @param value
+	 */
+	public void addToTail(E value) {
+		Node <E> node=new Node <E>(value);
+		if(head==null) {
+			head=node;
+			return;
+		}
+		Node <E> nodeAux= head;
+		while (nodeAux.getNext()!=null) {
+			nodeAux= nodeAux.getNext();
+		}
+		nodeAux.setNext(node);
+		
+	} 
+	 public void addByPosition(E value,int pos) {
+		 int cont =0;
+		 Node <E> node= head;
+		 while(node.getNext()!=null) {
+			 
+		 }
+	 }
 	
 
 }
