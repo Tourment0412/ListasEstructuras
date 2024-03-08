@@ -65,12 +65,63 @@ public class SimpleList <E> {
 		
 	} 
 	 public void addByPosition(E value,int pos) {
+		 Node <E> nodeParam= new Node<E>(value);
 		 int cont =0;
 		 Node <E> node= head;
-		 while(node.getNext()!=null) {
+		 if(head==null) {
+			 head= nodeParam;
+			 return;
+		 }
+		 if(pos==0) {
+			 nodeParam.setNext(head);
+			 head= nodeParam;
+			 return;
+		 }
+		 
+		 
+		 
+		 while(node.getNext()!=null && cont<pos-1) {
+			node= node.getNext();
+			cont++;
+		 }
+		 if(cont==pos-1);
+		 nodeParam.setNext(node.getNext());
+		 node.setNext(nodeParam);
+		 
+	 }
+	 
+	 public boolean isValidIndex(int index) {
+		 if(head==null) {
+			 return false;
+		 }
+		 Node <E> nodo= head;
+		 int cont=0;
+		 while(nodo.getNext()!=null) {
+			 if(cont==index) {
+				 return true;
+			 }
+			 nodo= nodo.getNext();
+			 cont++; 
+			 
 			 
 		 }
+		 return false;
 	 }
-	
+	// Método para revertir la lista enlazada utilizando recursividad
+	    private Node <E>reverseRecursively(Node<E> current) {
+	        if (current == null || current.getNext() == null) {
+	            return current;
+	        }
+	        
+	        Node <E> newHead = reverseRecursively(current.getNext());
+	        current.getNext().setNext(current);
+	        current.setNext(null); // Corrección aquí
+	        return newHead;
+	    }
+
+	    // Método público para invertir la lista llamando al método recursivo
+	    public void reverse() {
+	        head = reverseRecursively(head);
+	    }
 
 }
