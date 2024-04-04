@@ -19,7 +19,7 @@ public class Pruebas {
 		
 		
 		System.out.println(set.size());
-		Persona per = new Persona(2);
+		Persona per = new Persona(2,"Holaa");
 		
 		//TreeSet<String> treeset= new TreeSet<String>();
 		
