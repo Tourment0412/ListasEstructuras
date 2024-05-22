@@ -65,7 +65,7 @@ public class Pruebas {
 		System.out.println(arbol.getQuantityLeafs());
 		
 		System.out.println("Elimando nodo 43");
-		arbol.remove(43);
+		arbol.remove(50);
 		arbol.inOrder();
 		
 		
